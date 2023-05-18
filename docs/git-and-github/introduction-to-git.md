@@ -37,5 +37,5 @@ After typing in `ls -a` you will see a folder called `.git`. This is what the `g
 
 If you accidentally initialize a repository in the wrong directory (you don’t want to make your Desktop or Home folder a git repository), you can just remove the `.git` folder using `rm -rf .git`.
 
-When you’re ready, move on to [Basic Git Commands](/docs/tutorial-basics/basic-git-commands.md)
+When you’re ready, move on to Basic Git Commands
 
