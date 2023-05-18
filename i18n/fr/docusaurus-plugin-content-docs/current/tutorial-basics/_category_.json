@@ -1,0 +1,8 @@
+{
+  "label": "Git et GitHub",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Bienvenue dans le didacticiel Git et GitHub de notre site Web Codust, où vous trouverez une collection complète de ressources pour maîtriser Git et GitHub. Nos cours couvrent tout, des bases de Git, y compris les commandes et la configuration, aux exercices qui renforcent vos compétences. Nous fournissons également des instructions détaillées sur GitHub, explorant des sujets tels que l'utilisation de télécommandes, la configuration de jetons d'accès personnels et la maîtrise du flux de travail GitHub. Grâce à des exercices pratiques et à des exemples concrets, vous acquerrez les connaissances et la confiance nécessaires pour collaborer efficacement et gérer facilement vos référentiels de code. Que vous débutiez dans le contrôle de version ou que vous cherchiez à améliorer vos compétences existantes, nos cours vous guideront tout au long de votre parcours pour maîtriser Git et GitHub."
+  }
+}
