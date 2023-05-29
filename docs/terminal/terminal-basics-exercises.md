@@ -32,3 +32,5 @@ Write the following terminal commands to perform the following tasks:
 12. What is an relative path?
 13. What is a flag? Give three examples of flags you have used.
 14. What do the r and f flags do with the rm command?
+
+You can find the solutions [here](https://github.com/Codust-SIR/Codust-Tutorial/solutions/terminal-basic-exercise)
