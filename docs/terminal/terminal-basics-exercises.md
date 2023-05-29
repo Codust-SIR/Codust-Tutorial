@@ -2,6 +2,8 @@
 sidebar_position: 5
 ---
 
+# Terminal Basics Exercises
+
 Write the following terminal commands to perform the following tasks:
 
 ## Part I
