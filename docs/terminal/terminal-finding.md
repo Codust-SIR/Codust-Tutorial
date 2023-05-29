@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Listing Files and Flags
+# Finding Files and Folders
 
 ## Objectives
 
