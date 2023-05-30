@@ -6,6 +6,7 @@ import {
   getAllStudents,
   signInStudentHandler,
 } from "@site/firebase";
+import Layout from "@theme/Layout";
 import React, { useState, useEffect } from "react";
 
 const AssignmentPage = () => {
@@ -41,7 +42,8 @@ const AssignmentPage = () => {
   }, [student, submited]);
 
   return (
-    <>
+    <Layout  title={`Assignment`}
+      description="Assignment Page">
       <div
         style={{
           display: "grid",
@@ -114,7 +116,7 @@ const AssignmentPage = () => {
           </>
         )}
       </div>
-    </>
+    </Layout>
   );
 };
 
