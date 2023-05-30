@@ -19,8 +19,15 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+function isBrowser() {
+  return typeof window !== "undefined";
+}
 
+if (isBrowser()) {
+  // Run this code only on the client-side
+  const analytics = getAnalytics(app);
+  // Initialize and use Firebase Analytics
+}
 // Get the Auth instance
 const auth = getAuth(app);
 const db = getFirestore();
