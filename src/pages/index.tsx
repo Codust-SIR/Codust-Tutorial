@@ -42,6 +42,7 @@ export default function Home(): JSX.Element {
       <main>
         <HomepageFeatures />
         <CourseContents />
+
         <CourseOverviews />
       </main>
     </Layout>

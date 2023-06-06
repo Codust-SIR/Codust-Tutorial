@@ -80,28 +80,70 @@ const CourseContentList: CourseContentType[] = [
 ];
 const CourseOverviewList: CourseOverviewType[] = [
   {
+    title: "Terminal Fundamentals",
+    Svg: require("@site/static/img/Windows_Terminal_logo.svg").default,
+    description: (
+      <>
+        The Terminal is a powerful tool for interacting with a computer through
+        text-based commands.
+      </>
+    ),
+    url: "/docs/category/terminal-fundamentals",
+  },
+  {
     title: "Git And GitHub",
     Svg: require("@site/static/img/git-icon.svg").default,
-    description: <>Introduction to HTML</>,
+    description: (
+      <>
+        Git is a version control system, and GitHub is a web-based platform for
+        hosting Git repositories and collaboration.
+      </>
+    ),
     url: "/docs/category/git-and-github",
   },
   {
     title: "HTML",
     Svg: require("@site/static/img/icons8-html-480.svg").default,
-    description: <>Introduction to Git</>,
+    description: (
+      <>
+        HTML (Hypertext Markup Language) is the standard markup language for
+        creating the structure and content of web pages.
+      </>
+    ),
     url: "/docs/category/html",
   },
   {
     title: "CSS",
     Svg: require("@site/static/img/css-icon.svg").default,
-    description: <>Introduction to CSS</>,
+    description: (
+      <>
+        CSS (Cascading Style Sheets) is used to style and format the layout of
+        web pages, enhancing their visual appearance.
+      </>
+    ),
     url: "docs/category/css",
   },
   {
-    title: "JavaScript 101",
+    title: "JavaScript",
     Svg: require("@site/static/img/js-icon.svg").default,
-    description: <>JavaScript 101</>,
+    description: (
+      <>
+        JS (JavaScript) is a programming language that adds interactivity,
+        dynamic behavior, and functionality to web pages.
+      </>
+    ),
     url: "docs/category/javascript-101",
+  },
+  {
+    title: "React JS",
+    Svg: require("@site/static/img/React-icon.svg").default,
+    description: (
+      <>
+        ReactJS is a popular JavaScript library used for building user
+        interfaces and creating interactive web applications.
+      </>
+    ),
+    url: "docs/category/react-js",
   },
 ];
 function Feature({ title, Svg, description }: FeatureItem) {
