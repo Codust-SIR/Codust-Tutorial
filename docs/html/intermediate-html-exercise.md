@@ -18,6 +18,6 @@ Write the necessary HTML to make your page look just like this one:
 
 Don’t worry about the song / video being the same – you can use whatever video you’d like!
 
-You can find the solutions [here](https://github.com/rithmschool/html_css_basics_solutions/tree/master/intermediate_html)
+You can find the solutions [here](https://github.com/Codust-SIR/Codust-Tutorial/tree/main/solutions/intermediate_html)
 
 When you’re ready, move on to Syntax and Selectors
