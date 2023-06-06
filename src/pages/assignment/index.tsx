@@ -8,14 +8,17 @@ import {
 } from "@site/firebase";
 import Layout from "@theme/Layout";
 import React, { useState, useEffect } from "react";
+import styles from "../index.module.css";
 
 const AssignmentPage = () => {
   const [student, setStudent] = useState<ReloadUserInfo>(null);
   const [allAssignments, setAllAssignments] = useState([]);
   const [displayAssignmentForm, setDisplayAssignmentForm] = useState(false);
+  const [loadingAssigments, setLoadingAssigments] = useState(true);
   const [submited, setSubmited] = useState(false);
-  const handlersetSubmited = () => {
-    setSubmited((p) => !p);
+  const signoutStudentHandler = () => {
+    setStudent(null);
+    localStorage.removeItem("student");
   };
   const displayAssignmentFormHandler = () => {
     setDisplayAssignmentForm((p) => !p);
@@ -23,16 +26,20 @@ const AssignmentPage = () => {
   };
 
   useEffect(() => {
+    setLoadingAssigments(true);
     const storedStudent = localStorage.getItem("student");
     if (storedStudent) {
       const parsedStudent = JSON.parse(storedStudent);
       setStudent(parsedStudent);
+      setLoadingAssigments(false);
     }
   }, []);
 
   useEffect(() => {
     const gaa = async () => {
-      if (student) setAllAssignments(await getAllStudents(student.localId));
+      if (student) {
+        setAllAssignments(await getAllStudents(student.localId));
+      }
     };
     gaa();
 
@@ -42,8 +49,7 @@ const AssignmentPage = () => {
   }, [student, submited]);
 
   return (
-    <Layout  title={`Assignment`}
-      description="Assignment Page">
+    <Layout title={`Assignment`} description="Assignment Page">
       <div
         style={{
           display: "grid",
@@ -81,6 +87,16 @@ const AssignmentPage = () => {
                   <h5>{student.displayName}</h5>
                   <p>{student.providerUserInfo[0].email}</p>
                 </div>
+                <button
+                  style={{
+                    height: "20px",
+                    width: "80px",
+                    borderRadius: "5%",
+                  }}
+                  onClick={signoutStudentHandler}
+                >
+                  Signout
+                </button>
               </div>
             ) : (
               <>
@@ -95,9 +111,9 @@ const AssignmentPage = () => {
             )}
           </div>
         </div>
-        {student && (
+        {student ? (
           <>
-            <h1>Hello There {student.displayName} !</h1>
+            <h1>Welcome back, {student.displayName} !</h1>
             {displayAssignmentForm ? (
               <AssignmentForm
                 displayAssignmentFormHandler={displayAssignmentFormHandler}
@@ -110,9 +126,18 @@ const AssignmentPage = () => {
                 Create Terminal Exercise
               </Button>
             )}
-            {allAssignments.length > 0 && (
-              <Table allAssignments={allAssignments} />
+            {!loadingAssigments ? (
+              allAssignments.length > 0 && (
+                <Table allAssignments={allAssignments} />
+              )
+            ) : (
+              <Spinner />
             )}
+          </>
+        ) : (
+          <>
+            <h1>Hello There !</h1>
+            <p>Please sign in or sign up to get started.</p>
           </>
         )}
       </div>
@@ -233,6 +258,34 @@ const AssignmentForm: React.FC<{
 
     // Perform submission logic here
     // You can access the form values using the 'hours', 'repository', 'comment', and 'exercises' state
+    if (comment.split("").length < 1) {
+      alert("Comment cannot be empty");
+      return;
+    }
+    if (hours < 1) {
+      alert("Hours cannot be less than 1");
+      return;
+    }
+    if (repository.split(" ").length < 1) {
+      alert("Repository cannot be empty");
+      return;
+    }
+    if (repository.split(" ").length > 1) {
+      alert("Repository cannot contain spaces");
+      return;
+    }
+    // if repository is not a valid url,
+    // then alert the user and return
+    if (!repository.includes("github.com")) {
+      alert("Repository must be a valid github url");
+      return;
+    }
+    // if repository is not a valid url,
+    // then alert the user and return
+    if (!repository.includes("https://")) {
+      alert("Repository must be a valid github url");
+      return;
+    }
     addAssignment(
       {
         comment,
@@ -254,11 +307,40 @@ const AssignmentForm: React.FC<{
       style={{
         position: "fixed",
         zIndex: 1,
-        backgroundColor: "lightgreen",
+        backgroundColor: "#bbb",
         top: "10%",
+        padding: 10,
+        borderRadius: 10,
       }}
       onSubmit={handleSubmit}
     >
+      {/* Close form */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          position: "relative",
+        }}
+      >
+        <h2>Create Assignment</h2>
+        <p>
+          <span
+            style={{
+              cursor: "pointer",
+              position: "absolute",
+              top: "50%",
+              right: "0%",
+              padding: "10px 10px",
+              transform: "translate(0%, -50%)",
+              background: "#bbc",
+              borderRadius: "50%",
+            }}
+            onClick={displayAssignmentFormHandler}
+          >
+            x
+          </span>
+        </p>
+      </div>
       <div>
         <label htmlFor="hours">Used hours:</label>
         <input
@@ -266,7 +348,12 @@ const AssignmentForm: React.FC<{
           id="hours"
           value={hours}
           onChange={handleHoursChange}
-          style={{ width: "100%", padding: "5px", marginBottom: "10px" }}
+          style={{
+            width: "100%",
+            padding: "5px",
+            marginBottom: "10px",
+            borderRadius: 10,
+          }}
         />
       </div>
       <div>
@@ -276,7 +363,12 @@ const AssignmentForm: React.FC<{
           id="repository"
           value={repository}
           onChange={handleRepositoryChange}
-          style={{ width: "100%", padding: "5px", marginBottom: "10px" }}
+          style={{
+            width: "100%",
+            padding: "5px",
+            marginBottom: "10px",
+            borderRadius: 10,
+          }}
         />
       </div>
       <div>
@@ -285,7 +377,12 @@ const AssignmentForm: React.FC<{
           id="comment"
           value={comment}
           onChange={handleCommentChange}
-          style={{ width: "100%", padding: "5px", marginBottom: "10px" }}
+          style={{
+            width: "100%",
+            padding: "5px",
+            marginBottom: "10px",
+            borderRadius: 10,
+          }}
         />
       </div>
 
@@ -298,6 +395,7 @@ const AssignmentForm: React.FC<{
           border: "none",
           cursor: "pointer",
           marginTop: "10px",
+          borderRadius: 10,
         }}
       >
         Submit
@@ -305,3 +403,17 @@ const AssignmentForm: React.FC<{
     </form>
   );
 };
+
+const Spinner = () => (
+  <div className={styles.spinner}>
+    <div className={styles.rect1}></div>
+    <div className={styles.rect2}></div>
+    <div className={styles.rect3}></div>
+    <div className={styles.rect4}></div>
+    <div className={styles.rect5}></div>
+    <div className={styles.rect6}></div>
+    <div className={styles.rect7}></div>
+    <div className={styles.rect8}></div>
+    <div className={styles.rect9}></div>
+  </div>
+);
