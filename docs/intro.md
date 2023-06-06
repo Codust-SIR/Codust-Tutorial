@@ -18,10 +18,6 @@ To ensure that all students are well-prepared for the **Codust** course, we reco
 
 No previous programming knowledge is required to start this course, making it accessible to beginners. However, having a solid mathematical foundation will enhance your problem-solving abilities and provide a strong basis for understanding the underlying concepts in programming.
 
-
-
-
-
 ## Why Learn Web Development?
 
 Web development has become an indispensable skill in today's digital era. Here are some compelling reasons why learning web development is worth your time and effort:
