@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Navigating in Terminal
 
+Welcome to "Navigating in Terminal," a comprehensive guide designed to help you master the art of command line navigation. This page covers the basics of Terminal, including an introduction to shells like Bash and ZSH. Discover how Terminal is structured and learn essential techniques for moving around directories. Gain insights into the difference between absolute and relative paths, and put your knowledge to the test with thought-provoking questions. Prepare to navigate with confidence and unlock the full potential of Terminal's command line interface.
+
 ## Objectives
 
 By the end of this chapter, you should be able to:

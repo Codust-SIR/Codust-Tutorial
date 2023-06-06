@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # Listing Files and Flags
 
+Welcome to the "Listing Files and Flags" page, your comprehensive guide to effectively navigate and explore file listings using various flags. This page covers the fundamental skill of listing files, allowing you to view the contents of directories and obtain vital information about files. Learn about the power of flags, which provide additional functionality and customization options when listing files. Gain insights into commonly used flags and how they can enhance your file listing experience. By mastering the art of listing files and understanding the various flags at your disposal, you'll be equipped with the tools to efficiently navigate and manage your files in the command line interface.
+
 ## Objectives
 
 By the end of this chapter, you should be able to:

@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # Finding Files and Folders
 
+Welcome to the "Finding Files and Folders" page, where you'll discover powerful techniques for locating specific files and folders within your system. This comprehensive guide focuses on two essential tools: grep and wildcards. Learn how to leverage the grep command to search for specific patterns or content within files, allowing you to quickly identify relevant information. Explore the versatility of wildcards, enabling you to perform advanced file and folder searches using pattern matching. By mastering these techniques, you'll be able to efficiently locate and retrieve the files and folders you need, saving time and streamlining your workflow. Get ready to unlock the power of finding files and folders with grep and wildcards!
+
 ## Objectives
 
 By the end of this chapter, you should be able to:

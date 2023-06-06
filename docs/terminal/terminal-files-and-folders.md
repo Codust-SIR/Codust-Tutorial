@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Working with Files and Folders
 
+Welcome to the "Working with Files and Folders" page, where you'll learn the essential techniques for effective file and folder management. This comprehensive guide covers a range of topics, including creating files and folders, displaying file contents, opening files for editing, moving and copying files and folders, and safely deleting them. Engage in practical exercises to reinforce your learning and enhance your skills. By mastering these operations, you'll gain the confidence and proficiency needed to efficiently organize and manipulate your digital files and folders. Get ready to take control of your data and streamline your workflow!
+
 ## Objectives
 
 By the end of this chapter, you should be able to:
