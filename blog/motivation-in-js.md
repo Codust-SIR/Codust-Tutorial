@@ -9,7 +9,7 @@ authors:
 tags: [JavaScript, Programming]
 ---
 
-![Motivation for New Programmers in JavaScript](https://example.com/motivation.jpg)
+![Motivation for New Programmers in JavaScript](https://images.pexels.com/photos/5246429/pexels-photo-5246429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
 
 Hello aspiring developers!
 
@@ -47,4 +47,4 @@ As you embark on your journey as a new programmer in JavaScript, remember to sta
 
 Keep coding, keep learning, and enjoy the incredible journey that awaits you!
 
-![Motivation for New Programmers in JavaScript](https://example.com/motivation.jpg)
+![Motivation for New Programmers in JavaScript](https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)
