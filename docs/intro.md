@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# "Helwlo World 🙋‍♂️🙋‍♀️" Welcome in the world of developers
+# "Hello World 🙋‍♂️🙋‍♀️" Welcome in the world of developers
 
 Welcome to **Codust**, a comprehensive coding tutorial that will take you on a journey to master `Git`, `GitHub`, `HTML`, `CSS`, `JavaScript`, and `React Js`! In today's interconnected world, these technologies play a vital role in shaping the digital landscape. Whether you're a beginner eager to explore the foundations of coding or an experienced developer looking to enhance your skills, **Codust** is here to guide you every step of the way. Through hands-on exercises, real-world examples, and practical projects, you'll gain the knowledge and confidence to navigate version control, build responsive webpages, create engaging user interfaces, and collaborate effectively with other developers. Get ready to ignite your passion for coding and unlock a world of possibilities with **Codust**!
 
