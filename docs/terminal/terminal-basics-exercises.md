@@ -11,7 +11,7 @@ Write the following terminal commands to perform the following tasks:
 1. make a directory called `first`
 2. change directory to the `first` folder
 3. create a file called `person.txt`
-4. change the name of `person.txt` to another.txt
+4. change the name of `person.txt` to `another.txt`
 5. make a copy of the `another.txt` file and call it `copy.txt`
 6. remove the `copy.txt` file
 7. make a copy of the first folder and call it `second`
@@ -19,11 +19,11 @@ Write the following terminal commands to perform the following tasks:
 
 ## Part II
 
-1. What does the `man` command do? Type in `man rm`. How do you scroll and get out?
-2. Look at the `man` page for `ls`. What does the `-l` flag do? What does the `-a` flag do?
+1. What does the `help` command do? Type in `help rm`. How do you scroll and get out?
+2. Look at the `help` page for `ls`. What does the `-l` flag do? What does the `-a` flag do?
 3. Type the following command to download and save the contents of google.com: `curl https://www.google.com > google.html`
 4. Use `less` to look at the contents of `google.html`.
-5. Look at the `man` page for `less`. Read the section on `/pattern`. Search for the text hplogo in the google.html file.
+5. Look at the `help` page for `less`. Read the section on `/pattern`. Search for the text hplogo in the google.html file.
 6. How do you jump between words in the terminal?
 7. How do you get to the end of a line in terminal?
 8. How do you move your cursor to the beginning in terminal?
