@@ -13,19 +13,19 @@
 
 ### Part II
 
-- What does the man command do? Type in man rm. How do you scroll and get out? **The man command lists the manual for a command**
+- What does the `man` command do? Type in `man` rm. How do you scroll and get out? **The `man` command lists the manual for a command**
     **- D or Control ⌃-D to advance half a page**
     **- B or Control ⌃-B to go back one page**
     **- U or Control ⌃-U to go back half a page**
     
-- Look at the man page for ls. What does the -l flag do? What does the 
+- Look at the `man` page for ls. What does the -l flag do? What does the 
 `-a` flag -do? **The `-l` flag lists files in a list format with more detail and the `-a` lists all files and folders including hidden ones**
 
 - Type the following command to download and save the contents of google.com: curl https://www.google.com > google.html `curl https://www.google.com > google.html`
 
 - Use less to look at the contents of google.html. `less google.html`
 
-- Look at the man page for less. Read the section on /pattern. Search for the text hplogo in the google.html file. `less -p hplogo google.html`
+- Look at the `man` page for less. Read the section on /pattern. Search for the text hplogo in the google.html file. `less -p hplogo google.html`
 
 - How do you jump between words in the terminal? `option left/right`
 
