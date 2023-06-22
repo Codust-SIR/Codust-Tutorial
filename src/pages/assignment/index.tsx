@@ -26,19 +26,20 @@ const AssignmentPage = () => {
   };
 
   useEffect(() => {
-    setLoadingAssigments(true);
     const storedStudent = localStorage.getItem("student");
     if (storedStudent) {
       const parsedStudent = JSON.parse(storedStudent);
       setStudent(parsedStudent);
-      setLoadingAssigments(false);
     }
   }, []);
 
   useEffect(() => {
+    setLoadingAssigments(true);
+
     const gaa = async () => {
       if (student) {
         setAllAssignments(await getAllStudents(student.localId));
+        setLoadingAssigments(false);
       }
     };
     gaa();
@@ -187,7 +188,7 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
     <table>
       <thead>
         <tr>
-          <th>Part</th>
+          <th>Assignment Name</th>
           <th>Hours</th>
           <th>GitHub</th>
           <th>Comment</th>

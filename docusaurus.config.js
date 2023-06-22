@@ -28,7 +28,6 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
 
-
   presets: [
     [
       "classic",
@@ -44,6 +43,12 @@ const config = {
           customCss: require.resolve("./src/css/custom.css"),
         },
       }),
+      {
+        gtag: {
+          trackingID: "G-999X9XX9XX",
+          anonymizeIP: true,
+        },
+      },
     ],
   ],
 
