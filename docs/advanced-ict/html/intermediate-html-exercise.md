@@ -8,13 +8,13 @@ sidebar_position: 6
 
 Write the necessary HTML to make your page look just like this one:
 
-![html_mock1](../../static/img/html_mock1.png.webp)
+![html_mock1](../../../static/img/html_mock1.png.webp)
 
 ## Part 2
 
 Write the necessary HTML to make your page look just like this one:
 
-![hrml_mock2](../../static/img/html_mock2.png.webp)
+![hrml_mock2](../../../static/img/html_mock2.png.webp)
 
 Don’t worry about the song / video being the same – you can use whatever video you’d like!
 
