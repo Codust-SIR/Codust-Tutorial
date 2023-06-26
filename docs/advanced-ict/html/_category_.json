@@ -1,8 +1,0 @@
-{
-  "label": "HTML",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "Welcome to our Codust website's Git and GitHub tutorial, where you'll find a comprehensive collection of resources to master Git and GitHub. Our courses cover everything from the basics of Git, including commands and configuration, to exercises that reinforce your skills. We also provide in-depth instruction on GitHub, exploring topics such as working with remotes, setting up personal access tokens, and mastering the GitHub workflow. Through practical exercises and real-world examples, you'll gain the knowledge and confidence to collaborate effectively and manage your code repositories with ease. Whether you're new to version control or looking to enhance your existing skills, our courses will guide you on a journey to becoming proficient in Git and GitHub."
-  }
-}
