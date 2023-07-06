@@ -184,6 +184,11 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
     (sum, assignment) => sum + assignment.usedHours,
     0
   );
+
+  const totalScore = allAssignments.reduce(
+    (sum, assignment) => sum + (assignment.score ? assignment.score : 0),
+    0
+  );
   return (
     <table>
       <thead>
@@ -223,7 +228,9 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
         <tr>
           <td colSpan={1}>Total</td>
           <td>{totalHours}</td>
-          <td colSpan={3}></td>
+          <td colSpan={2}></td>
+          <td>{totalScore}</td>
+          <td></td>
         </tr>
       </tbody>
     </table>
@@ -321,6 +328,7 @@ const AssignmentForm: React.FC<{
         top: "10%",
         padding: 10,
         borderRadius: 10,
+        backdropFilter: "blur(40px)",
       }}
       onSubmit={handleSubmit}
     >
