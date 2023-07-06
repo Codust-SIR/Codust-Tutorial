@@ -113,7 +113,7 @@ const AssignmentPage = () => {
           <div>
             {student ? (
               <>
-                {/* <Tooltip title="Account settings">
+                <Tooltip title="Account settings">
                   <Box
                     aria-controls={open ? "account-menu" : undefined}
                     aria-haspopup="true"
@@ -151,7 +151,7 @@ const AssignmentPage = () => {
                       </Box>
                     )}
                   </Box>
-                </Tooltip> */}
+                </Tooltip>
                 {/* <Menu
                   anchorEl={anchorEl}
                   id="account-menu"
