@@ -128,8 +128,22 @@ const AssignmentPage = () => {
               </Button>
             )}
             {!loadingAssigments ? (
-              allAssignments.length > 0 && (
+              allAssignments.length > 0 ? (
                 <Table allAssignments={allAssignments} />
+              ) : (
+                <div
+                  style={{
+                    display: "grid",
+                    placeItems: "center",
+                    boxShadow: "0px 0px 10px #cccf",
+                    padding: 10,
+                    borderRadius: 10,
+                    marginTop: 15,
+                  }}
+                >
+                  <h1>😔 No assignments to show</h1>
+                  <p>Please add assignments to submit 😀</p>
+                </div>
               )
             ) : (
               <Spinner />
