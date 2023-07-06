@@ -133,12 +133,12 @@ const AssignmentPage = () => {
                     }}
                   >
                     <Avatar src={student.photoUrl}>
-                      {student.displayName[0]}
+                      {student.displayName && student.displayName[0]}
                     </Avatar>
                     {!isMobile && (
                       <Box display={"flex"} flexDirection={"column"}>
                         <Typography variant="subtitle1" fontWeight={700}>
-                          {student.displayName}
+                          {student.displayName && student.displayName}
                         </Typography>
                         <Typography
                           sx={{
@@ -146,7 +146,7 @@ const AssignmentPage = () => {
                           }}
                           variant="subtitle2"
                         >
-                          {student.providerUserInfo[0].email}
+                          {student.providerUserInfo && student.providerUserInfo[0].email}
                         </Typography>
                       </Box>
                     )}
