@@ -8,7 +8,20 @@ import {
 } from "@site/firebase";
 import Layout from "@theme/Layout";
 import React, { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
+import Logout from "@mui/icons-material/Logout";
+
 import styles from "../index.module.css";
+import { TextField } from "@mui/material";
 
 const AssignmentPage = () => {
   const [student, setStudent] = useState<ReloadUserInfo>(null);
@@ -16,6 +29,34 @@ const AssignmentPage = () => {
   const [displayAssignmentForm, setDisplayAssignmentForm] = useState(false);
   const [loadingAssigments, setLoadingAssigments] = useState(true);
   const [submited, setSubmited] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  useEffect(() => {
+    const checkIsMobile = () => {
+      const isMobileDevice =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      setIsMobile(isMobileDevice);
+    };
+
+    checkIsMobile();
+
+    // Optional: Add event listener to recheck when the window is resized
+    window.addEventListener("resize", checkIsMobile);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
   const signoutStudentHandler = () => {
     setStudent(null);
     localStorage.removeItem("student");
@@ -66,55 +107,132 @@ const AssignmentPage = () => {
             width: "90%",
           }}
         >
-          <h1>Assignment Page</h1>
+          <Typography variant="h5" fontWeight={700}>
+            Assignments
+          </Typography>
           <div>
             {student ? (
-              <div
-                style={{
-                  display: "flex",
-                  alignContent: "center",
-                }}
-              >
-                <img
-                  src={student.photoUrl}
-                  alt={student.displayName}
-                  style={{
-                    height: "50px",
-                    width: "50px",
-                    borderRadius: "50%",
+              <>
+                <Tooltip title="Account settings">
+                  <Box
+                    aria-controls={open ? "account-menu" : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? "true" : undefined}
+                    onClick={handleClick}
+                    sx={{
+                      display: "flex",
+                      gap: 1,
+                      p: 0.8,
+                      borderRadius: 5,
+                      "&:hover": {
+                        borderRadius: 5,
+                        cursor: "pointer",
+                        bgcolor: (theme) => theme.palette.action.focus,
+                      },
+                      bgcolor: (theme) => theme.palette.action.hover,
+                    }}
+                  >
+                    <Avatar src={student.photoUrl}>
+                      {student.displayName[0]}
+                    </Avatar>
+                    {!isMobile && (
+                      <Box display={"flex"} flexDirection={"column"}>
+                        <Typography variant="subtitle1" fontWeight={700}>
+                          {student.displayName}
+                        </Typography>
+                        <Typography
+                          sx={{
+                            color: (theme) => theme.palette.text.secondary,
+                          }}
+                          variant="subtitle2"
+                        >
+                          {student.providerUserInfo[0].email}
+                        </Typography>
+                      </Box>
+                    )}
+                  </Box>
+                </Tooltip>
+                <Menu
+                  anchorEl={anchorEl}
+                  id="account-menu"
+                  open={open}
+                  onClose={handleClose}
+                  onClick={handleClose}
+                  PaperProps={{
+                    elevation: 0,
+                    sx: {
+                      overflow: "visible",
+                      filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                      mt: 1.5,
+                      "& .MuiAvatar-root": {
+                        width: 32,
+                        height: 32,
+                        ml: -0.5,
+                        mr: 1,
+                      },
+                      "&:before": {
+                        content: '""',
+                        display: "block",
+                        position: "absolute",
+                        top: 0,
+                        right: 14,
+                        width: 10,
+                        height: 10,
+                        bgcolor: "background.paper",
+                        transform: "translateY(-50%) rotate(45deg)",
+                        zIndex: 0,
+                      },
+                    },
                   }}
-                />
-                <div>
-                  <h5>{student.displayName}</h5>
-                  <p>{student.providerUserInfo[0].email}</p>
-                </div>
-                <button
-                  style={{
-                    height: "20px",
-                    width: "80px",
-                    borderRadius: "5%",
-                  }}
-                  onClick={signoutStudentHandler}
+                  transformOrigin={{ horizontal: "right", vertical: "top" }}
+                  anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
                 >
-                  Signout
-                </button>
-              </div>
+                  <MenuItem onClick={handleClose}>
+                    <Avatar src={student.photoUrl}>
+                      {student.displayName[0]}
+                    </Avatar>
+                    <Typography variant="body1">
+                      {student.displayName}
+                    </Typography>
+                  </MenuItem>
+                  <Divider />
+
+                  <MenuItem
+                    onClick={() => {
+                      handleClose();
+                      signoutStudentHandler();
+                    }}
+                  >
+                    <ListItemIcon>
+                      <Logout fontSize="small" />
+                    </ListItemIcon>
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </>
             ) : (
               <>
-                <button
+                <Button
+                  color="success"
+                  variant="contained"
+                  sx={{
+                    textTransform: "none",
+                  }}
                   onClick={async () => {
                     setStudent(await signInStudentHandler());
                   }}
                 >
                   SignIn/SignUp
-                </button>
+                </Button>
               </>
             )}
           </div>
         </div>
         {student ? (
           <>
-            <h1>Welcome back, {student.displayName} !</h1>
+            <Typography variant="h6">
+              Welcome back, {student.displayName}!
+            </Typography>
             {displayAssignmentForm ? (
               <AssignmentForm
                 displayAssignmentFormHandler={displayAssignmentFormHandler}
@@ -122,7 +240,12 @@ const AssignmentPage = () => {
               />
             ) : (
               <Button
-                displayAssignmentFormHandler={displayAssignmentFormHandler}
+                color="success"
+                variant="contained"
+                sx={{
+                  textTransform: "none",
+                }}
+                onClick={displayAssignmentFormHandler}
               >
                 Add assignment to submit
               </Button>
@@ -141,8 +264,12 @@ const AssignmentPage = () => {
                     marginTop: 15,
                   }}
                 >
-                  <h1>😔 No assignments to show</h1>
-                  <p>Please add assignments to submit 😀</p>
+                  <Typography variant="h6">
+                    😔 No assignments to show
+                  </Typography>
+                  <Typography variant="body1">
+                    Add assignments to submit 😀
+                  </Typography>
                 </div>
               )
             ) : (
@@ -161,37 +288,37 @@ const AssignmentPage = () => {
 };
 
 export default AssignmentPage;
-const Button = ({ children, displayAssignmentFormHandler }) => {
-  const [buttonStyle, setButtonStyle] = useState({
-    backgroundColor: "#4caf50",
-    color: "white",
-    padding: "10px 20px",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    margin: "15px",
-  });
+// const Button = ({ children, displayAssignmentFormHandler }) => {
+//   const [buttonStyle, setButtonStyle] = useState({
+//     backgroundColor: "#4caf50",
+//     color: "white",
+//     padding: "10px 20px",
+//     border: "none",
+//     borderRadius: "4px",
+//     cursor: "pointer",
+//     margin: "15px",
+//   });
 
-  const hoverStyle = {
-    backgroundColor: "#45a049",
-  };
+//   const hoverStyle = {
+//     backgroundColor: "#45a049",
+//   };
 
-  const handleMouseOver = () => {
-    setButtonStyle((prevStyle) => {
-      return { ...prevStyle, ...hoverStyle };
-    });
-  };
+//   const handleMouseOver = () => {
+//     setButtonStyle((prevStyle) => {
+//       return { ...prevStyle, ...hoverStyle };
+//     });
+//   };
 
-  return (
-    <button
-      style={buttonStyle}
-      onClick={displayAssignmentFormHandler}
-      onMouseOver={handleMouseOver}
-    >
-      {children}
-    </button>
-  );
-};
+//   return (
+//     <button
+//       style={buttonStyle}
+//       onClick={displayAssignmentFormHandler}
+//       onMouseOver={handleMouseOver}
+//     >
+//       {children}
+//     </button>
+//   );
+// };
 
 const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
   const totalHours = allAssignments.reduce(
@@ -203,10 +330,38 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
     (sum, assignment) => sum + (assignment.score ? assignment.score : 0),
     0
   );
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkIsMobile = () => {
+      const isMobileDevice =
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+      setIsMobile(isMobileDevice);
+    };
+
+    checkIsMobile();
+
+    // Optional: Add event listener to recheck when the window is resized
+    window.addEventListener("resize", checkIsMobile);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
   return (
-    <table>
+    <table
+      style={{
+        borderCollapse: "collapse",
+        padding: 10,
+      }}
+    >
       <thead>
         <tr>
+          <th>
+            N<sup>0</sup>
+          </th>
           <th>Assignment Name</th>
           <th>Hours</th>
           <th>GitHub</th>
@@ -218,6 +373,8 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
       <tbody>
         {allAssignments.map((item, index) => (
           <tr key={index}>
+            <td>{index + 1}</td>
+
             <td>{item.part}</td>
             <td>{item.usedHours}</td>
             <td>
@@ -240,7 +397,7 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
           </tr>
         ))}
         <tr>
-          <td colSpan={1}>Total</td>
+          <td colSpan={2}>Total</td>
           <td>{totalHours}</td>
           <td colSpan={2}></td>
           <td>{totalScore}</td>
@@ -259,7 +416,7 @@ const AssignmentForm: React.FC<{
   const [repository, setRepository] = useState("");
   const [comment, setComment] = useState("");
 
-  const [hours, setHours] = useState<number>(0); // Set an initial value for hours
+  const [hours, setHours] = useState<number>(); // Set an initial value for hours
 
   const handleHoursChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -382,7 +539,10 @@ const AssignmentForm: React.FC<{
       </div>
       <div>
         <label htmlFor="hours">Used hours:</label>
-        <input
+        <TextField
+          variant="outlined"
+          color="success"
+          size="small"
           type="number"
           id="hours"
           value={hours}
@@ -397,7 +557,10 @@ const AssignmentForm: React.FC<{
       </div>
       <div>
         <label htmlFor="repository">Assignment Name:</label>
-        <input
+        <TextField
+          variant="outlined"
+          color="success"
+          size="small"
           type="text"
           id="assignmentName"
           value={assignmentName}
@@ -412,7 +575,10 @@ const AssignmentForm: React.FC<{
       </div>
       <div>
         <label htmlFor="repository">GitHub repository:</label>
-        <input
+        <TextField
+          variant="outlined"
+          color="success"
+          size="small"
           type="text"
           id="repository"
           value={repository}
@@ -427,7 +593,12 @@ const AssignmentForm: React.FC<{
       </div>
       <div>
         <label htmlFor="comment">Comment:</label>
-        <textarea
+        <TextField
+          variant="outlined"
+          color="success"
+          size="small"
+          multiline
+          maxRows={3}
           id="comment"
           value={comment}
           onChange={handleCommentChange}
@@ -442,20 +613,16 @@ const AssignmentForm: React.FC<{
         />
       </div>
 
-      <button
-        type="submit"
-        style={{
-          backgroundColor: "#4CAF50",
-          color: "white",
-          padding: "10px",
-          border: "none",
-          cursor: "pointer",
-          marginTop: "10px",
-          borderRadius: 10,
+      <Button
+        color="success"
+        variant="contained"
+        sx={{
+          textTransform: "none",
         }}
+        type="submit"
       >
         Submit
-      </button>
+      </Button>
     </form>
   );
 };
