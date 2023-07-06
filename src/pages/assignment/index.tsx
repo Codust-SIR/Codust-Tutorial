@@ -152,7 +152,7 @@ const AssignmentPage = () => {
                     )}
                   </Box>
                 </Tooltip> */}
-                <Menu
+                {/* <Menu
                   anchorEl={anchorEl}
                   id="account-menu"
                   open={open}
@@ -208,7 +208,7 @@ const AssignmentPage = () => {
                     </ListItemIcon>
                     Logout
                   </MenuItem>
-                </Menu>
+                </Menu> */}
               </>
             ) : (
               <>
