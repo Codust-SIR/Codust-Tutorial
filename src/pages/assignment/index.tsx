@@ -218,8 +218,12 @@ const AssignmentPage = () => {
                   sx={{
                     textTransform: "none",
                   }}
-                  onClick={async () => {
-                    setStudent(await signInStudentHandler());
+                  onClick={() => {
+                    const loadUser = async () => {
+                      const user = await signInStudentHandler();
+                      setStudent(user);
+                    };
+                    loadUser();
                   }}
                 >
                   SignIn/SignUp
