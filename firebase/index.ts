@@ -111,7 +111,9 @@ type Assignment = {
   part: string;
   usedHours: number;
   repository: string;
+  score ?: number;
   comment: string;
+  solution?: string;
 };
 
 // Exports

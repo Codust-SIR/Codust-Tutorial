@@ -124,7 +124,7 @@ const AssignmentPage = () => {
               <Button
                 displayAssignmentFormHandler={displayAssignmentFormHandler}
               >
-                Create Terminal Exercise
+                Add assignment to submit
               </Button>
             )}
             {!loadingAssigments ? (
@@ -192,6 +192,7 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
           <th>Hours</th>
           <th>GitHub</th>
           <th>Comment</th>
+          <th>Score</th>
           <th>Example Solutions</th>
         </tr>
       </thead>
@@ -210,6 +211,13 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
               </a>
             </td>
             <td>{item.comment}</td>
+            <td>{item.score ? item.score : "Not Marked Yet"}</td>
+            <td>
+              {" "}
+              <a href={item.solution} target="_blank" rel="noopener noreferrer">
+                {item.solution}
+              </a>
+            </td>
           </tr>
         ))}
         <tr>
@@ -226,6 +234,7 @@ const AssignmentForm: React.FC<{
   displayAssignmentFormHandler: () => void;
   uid: string;
 }> = ({ displayAssignmentFormHandler, uid }) => {
+  const [assignmentName, setAssignmentName] = useState("");
   const [repository, setRepository] = useState("");
   const [comment, setComment] = useState("");
 
@@ -290,7 +299,7 @@ const AssignmentForm: React.FC<{
     addAssignment(
       {
         comment,
-        part: "React",
+        part: assignmentName,
         repository,
         usedHours: hours,
       },
@@ -307,8 +316,8 @@ const AssignmentForm: React.FC<{
     <form
       style={{
         position: "fixed",
-        zIndex: 1,
-        backgroundColor: "#bbb",
+        zIndex: 10,
+        boxShadow: "0px 0px 10px #ccc",
         top: "10%",
         padding: 10,
         borderRadius: 10,
@@ -323,22 +332,29 @@ const AssignmentForm: React.FC<{
           position: "relative",
         }}
       >
-        <h2>Create Assignment</h2>
+        <h2>Add Assignment</h2>
         <p>
-          <span
-            style={{
-              cursor: "pointer",
-              position: "absolute",
-              top: "50%",
-              right: "0%",
-              padding: "10px 10px",
-              transform: "translate(0%, -50%)",
-              background: "#bbc",
-              borderRadius: "50%",
-            }}
-            onClick={displayAssignmentFormHandler}
-          >
-            x
+          <span onClick={displayAssignmentFormHandler}>
+            <svg
+              style={{
+                cursor: "pointer",
+                position: "absolute",
+                top: "50%",
+                right: "0%",
+                // padding: "1px",
+                transform: "translate(0%, -50%)",
+                boxShadow: "0px 0px 10px #ccc",
+                borderRadius: "50%",
+              }}
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+            </svg>
           </span>
         </p>
       </div>
@@ -349,6 +365,21 @@ const AssignmentForm: React.FC<{
           id="hours"
           value={hours}
           onChange={handleHoursChange}
+          style={{
+            width: "100%",
+            padding: "5px",
+            marginBottom: "10px",
+            borderRadius: 10,
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor="repository">Assignment Name:</label>
+        <input
+          type="text"
+          id="assignmentName"
+          value={assignmentName}
+          onChange={(e) => setAssignmentName(e.target.value)}
           style={{
             width: "100%",
             padding: "5px",
@@ -383,6 +414,8 @@ const AssignmentForm: React.FC<{
             padding: "5px",
             marginBottom: "10px",
             borderRadius: 10,
+            maxWidth: "500px",
+            maxHeight: "200px",
           }}
         />
       </div>
