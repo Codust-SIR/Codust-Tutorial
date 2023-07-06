@@ -152,7 +152,7 @@ const AssignmentPage = () => {
                     )}
                   </Box>
                 </Tooltip>
-                {/* <Menu
+                <Menu
                   anchorEl={anchorEl}
                   id="account-menu"
                   open={open}
@@ -188,11 +188,11 @@ const AssignmentPage = () => {
                   anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
                 >
                   <MenuItem onClick={handleClose}>
-                    <Avatar src={student.photoUrl}>
-                      {student.displayName[0]}
+                    <Avatar src={student.photoUrl && student.photoUrl}>
+                      {student.displayName && student.displayName[0]}
                     </Avatar>
                     <Typography variant="body1">
-                      {student.displayName}
+                      {student.displayName && student.displayName}
                     </Typography>
                   </MenuItem>
                   <Divider />
@@ -208,7 +208,7 @@ const AssignmentPage = () => {
                     </ListItemIcon>
                     Logout
                   </MenuItem>
-                </Menu> */}
+                </Menu>
               </>
             ) : (
               <>
