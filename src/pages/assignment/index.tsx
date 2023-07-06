@@ -113,7 +113,7 @@ const AssignmentPage = () => {
           <div>
             {student ? (
               <>
-                <Tooltip title="Account settings">
+                {/* <Tooltip title="Account settings">
                   <Box
                     aria-controls={open ? "account-menu" : undefined}
                     aria-haspopup="true"
@@ -151,7 +151,7 @@ const AssignmentPage = () => {
                       </Box>
                     )}
                   </Box>
-                </Tooltip>
+                </Tooltip> */}
                 <Menu
                   anchorEl={anchorEl}
                   id="account-menu"
@@ -292,37 +292,6 @@ const AssignmentPage = () => {
 };
 
 export default AssignmentPage;
-// const Button = ({ children, displayAssignmentFormHandler }) => {
-//   const [buttonStyle, setButtonStyle] = useState({
-//     backgroundColor: "#4caf50",
-//     color: "white",
-//     padding: "10px 20px",
-//     border: "none",
-//     borderRadius: "4px",
-//     cursor: "pointer",
-//     margin: "15px",
-//   });
-
-//   const hoverStyle = {
-//     backgroundColor: "#45a049",
-//   };
-
-//   const handleMouseOver = () => {
-//     setButtonStyle((prevStyle) => {
-//       return { ...prevStyle, ...hoverStyle };
-//     });
-//   };
-
-//   return (
-//     <button
-//       style={buttonStyle}
-//       onClick={displayAssignmentFormHandler}
-//       onMouseOver={handleMouseOver}
-//     >
-//       {children}
-//     </button>
-//   );
-// };
 
 const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
   const totalHours = allAssignments.reduce(
