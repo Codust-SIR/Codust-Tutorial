@@ -1,5 +1,7 @@
 import React from "react";
 import Layout from "@theme/Layout";
+import { Box, Typography } from "@mui/material";
+
 
 const Admin = () => {
   return (
