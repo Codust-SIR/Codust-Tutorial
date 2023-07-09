@@ -331,6 +331,7 @@ function BasicTable({ allAssignments }: { allAssignments: Assignment[] }) {
             <TableCell align="right">Hours</TableCell>
             <TableCell align="right">GitHub</TableCell>
             <TableCell align="right">Comment</TableCell>
+            <TableCell align="right">Score</TableCell>
             <TableCell align="right">Example Solutions</TableCell>
           </TableRow>
         </TableHead>
@@ -379,7 +380,6 @@ function BasicTable({ allAssignments }: { allAssignments: Assignment[] }) {
           <TableCell align="right">{totalHours}</TableCell>
           <TableCell colSpan={2}></TableCell>
           <TableCell align="right">{totalScore}</TableCell>
-          <TableCell></TableCell>
         </TableBody>
       </Table>
     </TableContainer>
