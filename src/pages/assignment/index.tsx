@@ -332,7 +332,6 @@ function BasicTable({ allAssignments }: { allAssignments: Assignment[] }) {
             <TableCell align="right">GitHub</TableCell>
             <TableCell align="right">Comment</TableCell>
             <TableCell align="right">Score</TableCell>
-            <TableCell align="right">Example Solutions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
