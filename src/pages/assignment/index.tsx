@@ -1,7 +1,6 @@
 import {
   Assignment,
   ReloadUserInfo,
-  StudentType,
   addAssignment,
   getAllStudents,
   signInStudentHandler,
@@ -14,11 +13,17 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
+
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 import styles from "../index.module.css";
 import { TextField } from "@mui/material";
@@ -146,7 +151,8 @@ const AssignmentPage = () => {
                           }}
                           variant="subtitle2"
                         >
-                          {student.providerUserInfo && student.providerUserInfo[0].email}
+                          {student.providerUserInfo &&
+                            student.providerUserInfo[0].email}
                         </Typography>
                       </Box>
                     )}
@@ -256,7 +262,10 @@ const AssignmentPage = () => {
             )}
             {!loadingAssigments ? (
               allAssignments.length > 0 ? (
-                <Table allAssignments={allAssignments} />
+                <>
+                  {/* <TableComponent allAssignments={allAssignments} /> */}
+                  <BasicTable allAssignments={allAssignments} />
+                </>
               ) : (
                 <div
                   style={{
@@ -293,7 +302,8 @@ const AssignmentPage = () => {
 
 export default AssignmentPage;
 
-const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
+
+function BasicTable({ allAssignments }: { allAssignments: Assignment[] }) {
   const totalHours = allAssignments.reduce(
     (sum, assignment) => sum + assignment.usedHours,
     0
@@ -303,83 +313,78 @@ const Table = ({ allAssignments }: { allAssignments: Assignment[] }) => {
     (sum, assignment) => sum + (assignment.score ? assignment.score : 0),
     0
   );
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const checkIsMobile = () => {
-      const isMobileDevice =
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        );
-      setIsMobile(isMobileDevice);
-    };
-
-    checkIsMobile();
-
-    // Optional: Add event listener to recheck when the window is resized
-    window.addEventListener("resize", checkIsMobile);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
-    };
-  }, []);
   return (
-    <table
-      style={{
-        borderCollapse: "collapse",
-        padding: 10,
-      }}
-    >
-      <thead>
-        <tr>
-          <th>
-            N<sup>0</sup>
-          </th>
-          <th>Assignment Name</th>
-          <th>Hours</th>
-          <th>GitHub</th>
-          <th>Comment</th>
-          <th>Score</th>
-          <th>Example Solutions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {allAssignments.map((item, index) => (
-          <tr key={index}>
-            <td>{index + 1}</td>
-
-            <td>{item.part}</td>
-            <td>{item.usedHours}</td>
-            <td>
-              <a
-                href={item.repository}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.repository}
-              </a>
-            </td>
-            <td>{item.comment}</td>
-            <td>{item.score ? item.score : "Not Marked Yet"}</td>
-            <td>
+    <TableContainer sx={{
+      p:1
+    }}>
+      <Table
+        sx={{ borderCollapse: "collapse", padding: 10 , }}
+        aria-label="simple table"
+      >
+        <TableHead>
+          <TableRow>
+            <TableCell>
               {" "}
-              <a href={item.solution} target="_blank" rel="noopener noreferrer">
-                {item.solution}
-              </a>
-            </td>
-          </tr>
-        ))}
-        <tr>
-          <td colSpan={2}>Total</td>
-          <td>{totalHours}</td>
-          <td colSpan={2}></td>
-          <td>{totalScore}</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+              N<sup>0</sup>
+            </TableCell>
+            <TableCell align="right">Assignment Name</TableCell>
+            <TableCell align="right">Hours</TableCell>
+            <TableCell align="right">GitHub</TableCell>
+            <TableCell align="right">Comment</TableCell>
+            <TableCell align="right">Example Solutions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {allAssignments.map((row, i) => (
+            <TableRow
+              key={i}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {i + 1}{" "}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.part}
+              </TableCell>
+              <TableCell align="right">{row.usedHours}</TableCell>
+              <TableCell align="right">
+                {" "}
+                <a
+                  href={row.repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {row.repository}
+                </a>
+              </TableCell>
+              <TableCell align="right">{row.comment}</TableCell>
+              <TableCell align="right">
+                {row.score ? row.score : "Not Marked Yet"}
+              </TableCell>
+              <TableCell align="right">
+                {" "}
+                <a
+                  href={row.solution}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {row.solution}
+                </a>
+              </TableCell>
+            </TableRow>
+          ))}
+          <TableCell component="th" colSpan={2} scope="row">
+            Total
+          </TableCell>{" "}
+          <TableCell align="right">{totalHours}</TableCell>
+          <TableCell colSpan={2}></TableCell>
+          <TableCell align="right">{totalScore}</TableCell>
+          <TableCell></TableCell>
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
-};
+}
 
 const AssignmentForm: React.FC<{
   displayAssignmentFormHandler: () => void;
