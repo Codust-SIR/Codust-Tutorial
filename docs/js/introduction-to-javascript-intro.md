@@ -53,7 +53,7 @@ console.log('This is less obtrusive.');
 
 Once again, after you’ve written the JavaScript, press enter to execute your code. You should see this message logged in the console.
 
-As you start typing more in the console, you will see it begins to fill up quickly. If you would like to clear the console you can either type in` clear()` and press enter or press `command + k` on mac or `Contol + L` on Windows.
+As you start typing more in the console, you will see it begins to fill up quickly. If you would like to clear the console you can either type in `clear()` and press enter or press `command + k` on mac or `Contol + L` on Windows.
 
 ## Writing longer scripts
 
@@ -87,7 +87,7 @@ Every HTML file needs a little bit of boilerplate to get started. For now, you c
 </html>
 ```
 
-Now all you need to do is open this file in Chrome. You can open up finder (or explorer for Windows) and double click on the file to open it in Chrome. Or if you’re using VS Code, you can use [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension 
+Now all you need to do is open this file in Chrome. You can open up finder (or explorer for Windows) and double click on the file to open it in Chrome. Or if you’re using VS Code, you can use [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Extension.
 
 Once the page loads in Chrome, you should see the alert message pop up. In other words, the JavaScript executes automatically, there’s no need for you to take any action.
 
@@ -128,4 +128,4 @@ As before, the code should execute as soon as you open the HTML page in Chrome.
 4. Create a simple page with a script tag. Inside of the script tag declare a couple of variables and then log their values to the console.
 5. Research prompt and confirm – what do they do ?
 
-When you’re ready, move on to [Variables and Primitives]()
+When you’re ready, move on to [Variables and Primitives](./variables-and-primitives.md)
