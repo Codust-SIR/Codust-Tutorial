@@ -25,9 +25,7 @@ let programming = {
 7. Using a loop, console.log all of the values in the programming object.
 
 ## Solutions
-You can find solutions to the exercises here
+You can find solutions to the exercises [here](https://github.com/Codust-SIR/Codust-Tutorial/blob/main/solutions/basic_js/object_exercise.js)
 
 When you’re ready, move on to Function Basics
 
-Previous Lesson
-Table 
