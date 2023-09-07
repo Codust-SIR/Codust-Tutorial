@@ -69,4 +69,4 @@ if(firstvariable){
 
 You can find the code [here](https://github.com/Codust-SIR/Codust-Tutorial/tree/main/solutions/boolean_logic_and_operators_exercise)
 
-When you’re ready, move on to [Array Basics](./array-basics.md)
+When you’re ready, move on to [Array Basics](../Array/array-basics.md)
