@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Exercise
+# Object Exercise
 
 For each of the exercises below, assume you are starting with the following `programming` object.
 
@@ -24,7 +24,7 @@ let programming = {
 6. Using a loop, console.log all of the keys in the programming object.
 7. Using a loop, console.log all of the values in the programming object.
 
-Solutions
+## Solutions
 You can find solutions to the exercises here
 
 When you’re ready, move on to Function Basics
