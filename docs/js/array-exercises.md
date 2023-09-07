@@ -34,6 +34,6 @@ let people = ["Greg", "Mary", "Devon", "James"];
 
 ## Code Solutions
 
-You can find solutions to the exercises here
+You can find solutions to the exercises [here](https://github.com/Codust-SIR/Codust-Tutorial/blob/main/solutions/basic_js/array_methods.js)
 
 When you’re ready, move on to Object Basics
