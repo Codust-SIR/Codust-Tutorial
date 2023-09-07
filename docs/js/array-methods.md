@@ -130,7 +130,7 @@ arr.lastIndexOf(4); // 6 - this one is different now as it starts from the end!
 arr.lastIndexOf(10); // -1 - still returns -1 if the value is not found in the array
 ```
 
-### Reference vs Value
+## Reference vs Value
 
 An essential distinction between primitives and objects (including arrays, which are a type of object in JavaScript) is how their values are passed when assigned to new variables. Take a look at the following example:
 
