@@ -47,7 +47,7 @@ arr.slice(2, 5); // [5, 4, 3]
 arr.slice(2, 1); // []
 ```
 
-## concat
+### concat
 
 `concat` joins two arrays together.
 
