@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # "Hello World 🙋‍♂️🙋‍♀️" Welcome in the world of developers
 
-Welcome to **Codust**, a comprehensive coding tutorial that will take you on a journey to master `Git`, `GitHub`, `HTML`, `CSS`, `JavaScript`, and `React Js`! In today's interconnected world, these technologies play a vital role in shaping the digital landscape. Whether you're a beginner eager to explore the foundations of coding or an experienced developer looking to enhance your skills, **Codust** is here to guide you every step of the way. Through hands-on exercises, real-world examples, and practical projects, you'll gain the knowledge and confidence to navigate version control, build responsive webpages, create engaging user interfaces, and collaborate effectively with other developers. Get ready to ignite your passion for coding and unlock a world of possibilities with **Codust**!
+Welcome to **Codedust**, a comprehensive coding tutorial that will take you on a journey to master `Git`, `GitHub`, `HTML`, `CSS`, `JavaScript`, and `React Js`! In today's interconnected world, these technologies play a vital role in shaping the digital landscape. Whether you're a beginner eager to explore the foundations of coding or an experienced developer looking to enhance your skills, **Codedust** is here to guide you every step of the way. Through hands-on exercises, real-world examples, and practical projects, you'll gain the knowledge and confidence to navigate version control, build responsive webpages, create engaging user interfaces, and collaborate effectively with other developers. Get ready to ignite your passion for coding and unlock a world of possibilities with **Codedust**!
 
 ## Prerequisites
 
-To ensure that all students are well-prepared for the **Codust** course, we recommend having a basic understanding of mathematics, including topics such as `Basic Algebra and Geometry`, `Trigonometry`, and `Statistics`. Here's why these mathematical prerequisites are important:
+To ensure that all students are well-prepared for the **Codedust** course, we recommend having a basic understanding of mathematics, including topics such as `Basic Algebra and Geometry`, `Trigonometry`, and `Statistics`. Here's why these mathematical prerequisites are important:
 
 1. **Basic Algebra and Geometry**: Algebra provides a foundation for understanding variables, equations, and problem-solving techniques that are essential in programming. Geometry helps develop spatial reasoning and visualization skills, which are valuable when designing user interfaces and layouts.
 

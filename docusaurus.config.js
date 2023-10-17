@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Codust",
+  title: "Codedust",
   tagline: "Explore Modern Web Development in Depth",
   favicon: "img/SIR_Logo.png",
 
@@ -20,8 +20,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "Codust", // Usually your GitHub org/user name.
-  projectName: "Codust Tutorial", // Usually your repo name.
+  organizationName: "Codedust", // Usually your GitHub org/user name.
+  projectName: "Codedust Tutorial", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -54,7 +54,7 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "Codust ",
+        title: "Codedust ",
         logo: {
           alt: "SIR Logo",
           src: "img/SIR_Logo.png",

@@ -35,13 +35,13 @@ Now that you have the repository locally, add a new file or make some changes, a
 
 ## Pull Request
 
-Now let’s say you are collaborating with the `Codust-SIR` organization (where you forked the repository from) and you would like to merge your changes with the original repo that you forked (remember you can’t just push up to it, because you do not have permission to do that). You can issue a pull request and someone who has permission can either merge or reject it.
+Now let’s say you are collaborating with the `Codedust-SIR` organization (where you forked the repository from) and you would like to merge your changes with the original repo that you forked (remember you can’t just push up to it, because you do not have permission to do that). You can issue a pull request and someone who has permission can either merge or reject it.
 
 To do this, click on the “New pull request button” and then click on the “Create pull request”. You should then be able to go to the original repository and see your pull request or “PR”.
 
 ## Retrieving Code from Github + Setting Upstream
 
-Now what happens if someone else makes a pull request that gets merged into `Codust-SIR`'s original repository? How do we get that code to our computer? Do we have to fork and clone all over again? Nope! Instead we will use a different and easier workflow.
+Now what happens if someone else makes a pull request that gets merged into `Codedust-SIR`'s original repository? How do we get that code to our computer? Do we have to fork and clone all over again? Nope! Instead we will use a different and easier workflow.
 
 1. Make sure everything is committed first locally
 2. Pull the latest code from GitHub (from a new remote which we will call upstream)
@@ -56,7 +56,7 @@ Even though we can’t push to this original repository repository, we can pull 
 git remote add upstream git@github.com:Codust-SIR/learn-fork.git
 ```
 
-Notice that the url points to `Codust-SIR` repository, not any repository associated with our GitHub account. Once the upstream is set, we can run git pull upstream master to get the latest code from the original repo, and then we can run git push origin master to update our forked copy with the latest code.
+Notice that the url points to `Codedust-SIR` repository, not any repository associated with our GitHub account. Once the upstream is set, we can run git pull upstream master to get the latest code from the original repo, and then we can run git push origin master to update our forked copy with the latest code.
 
 The git pull command is actually a combination of two commands git fetch + git merge. If you notice that a remote repository has new branches, you can use the git fetch command to retrieve them and see them using git branch -a. For more on pulling, fetching, and merging, check out this Stack Overflow question.
 
