@@ -10,7 +10,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Codedust",
   tagline: "Explore Modern Web Development in Depth",
-  favicon: "img/SIR_Logo.png",
+  favicon: "img/codedust.png",
 
   // Set the production url of your site here
   url: "https://codust-tutorial.vercel.app/",
@@ -56,8 +56,8 @@ const config = {
       navbar: {
         title: "Codedust ",
         logo: {
-          alt: "SIR Logo",
-          src: "img/SIR_Logo.png",
+          alt: "Codedust Logo",
+          src: "img/codedust.png",
         },
         items: [
           {
@@ -82,6 +82,67 @@ const config = {
       footer: {
         style: "dark",
         links: [
+          {
+            items: [
+              {
+                html: `
+                <a
+          style="
+            display: flex;
+            flex: 0.4;
+            gap: 10px;
+            color: white;
+          "
+          component={Link}
+          href="https://sirafrica.org"
+          underline="none"
+        >
+          <img
+            height={100}
+            width={100}
+            alt="SIR"
+            src="img/sirafrica_logo_bw.png"
+            style="
+              height: 45px;
+              width: 45px;
+            "
+          />
+          <div>
+            <h3
+              variant="h5"
+              component="h5"
+              style="
+                flex-grow: 1;
+                color: white;
+                font-weight: 800px;
+                letter-spacing: 3;
+              "
+            >
+              SIR
+            </h3>
+            <p
+              variant="body2"
+              component="p"
+              style={{
+                flexGrow: 1,
+                letter-spacing: 1,
+                color: white,
+              }}
+            >
+              Learn, Earn, Innovate
+            </p>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </a>
+                `,
+              },
+            ],
+          },
           {
             title: "Docs",
             items: [

@@ -236,6 +236,7 @@ export const CourseOverview: FC<CourseOverviewType> = ({
         href={url}
         style={{
           textDecoration: "none",
+          color: "#0E5479",
         }}
       >
         <div className="text--center">

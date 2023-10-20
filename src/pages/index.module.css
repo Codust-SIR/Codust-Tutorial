@@ -7,7 +7,9 @@
   padding: 4rem 0;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: hidden;  
+  background-color: #0078D4;
+
 }
 
 @media screen and (max-width: 996px) {
@@ -47,7 +49,7 @@
 }
 
 .spinner > div {
-  background-color: green;
+  background-color: dodgerblue;
   height: 100%;
   width: 6px;
   display: inline-block;
