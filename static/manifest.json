@@ -3,7 +3,7 @@
   "short_name": "Codedust",
   "theme_color": "#0a75bc",
   "background_color": "#fff",
-  "display": "fullScreen",
+  "display": "standalone standalone",
   "orientation": "",
   "scope": "/",
   "start_url": "/",
