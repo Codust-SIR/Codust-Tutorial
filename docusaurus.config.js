@@ -33,8 +33,7 @@ const config = {
         offlineModeActivationStrategies: [
           "appInstalled",
           "standalone",
-          "queryString",
-          "mobile",
+          "queryString"
         ],
         pwaHead: [
           {
