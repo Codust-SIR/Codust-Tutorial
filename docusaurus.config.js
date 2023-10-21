@@ -34,12 +34,13 @@ const config = {
           "appInstalled",
           "standalone",
           "queryString",
+          "mobile",
         ],
         pwaHead: [
           {
             tagName: "link",
             rel: "icon",
-            href: "/img/docusaurus.png",
+            href: "/img/codedust.png",
           },
           {
             tagName: "link",
@@ -49,7 +50,38 @@ const config = {
           {
             tagName: "meta",
             name: "theme-color",
-            content: "rgb(37, 194, 160)",
+            content: "#0a75bc",
+          },
+          {
+            tagName: "meta",
+            name: "apple-mobile-web-app-capable",
+            content: "yes",
+          },
+          {
+            tagName: "meta",
+            name: "apple-mobile-web-app-status-bar-style",
+            content: "#000",
+          },
+          {
+            tagName: "link",
+            rel: "apple-touch-icon",
+            href: "/img/codedust.png",
+          },
+          {
+            tagName: "link",
+            rel: "mask-icon",
+            href: "/img/docusaurus.svg",
+            color: "#0a75bc",
+          },
+          {
+            tagName: "meta",
+            name: "msapplication-TileImage",
+            content: "/img/codedust.png",
+          },
+          {
+            tagName: "meta",
+            name: "msapplication-TileColor",
+            content: "#000",
           },
         ],
       },
@@ -121,8 +153,8 @@ const config = {
             flex: 0.4;
             gap: 10px;
             color: white;
+            text-decoration: none;
           "
-          component={Link}
           href="https://sirafrica.org"
           underline="none"
         >
@@ -130,7 +162,7 @@ const config = {
             height={100}
             width={100}
             alt="SIR"
-            src="img/sirafrica_logo_bw.png"
+            src="/img/sirafrica_logo_bw.png"
             style="
               height: 45px;
               width: 45px;
