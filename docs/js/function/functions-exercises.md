@@ -108,4 +108,4 @@ isPalindrome("robert"); // false
 
 ### Code
 
-You can find the code to all solutions here
+You can find the code to all solutions [here](https://github.com/Codust-SIR/Codust-Tutorial/blob/main/solutions/basic_js/function_exercise.js)
