@@ -12,7 +12,7 @@ By the end of this chapter you should be able to:
 - Compare and contrast global and function scope
 - Understand what happens when variables are declared without the `let` keyword
 
-### Function Parameters
+## Function Parameters
 
 So far our functions have not been taking in any input; they simply are returning an output. So when would we want an input to our functions? Let’s imagine we want to calculate the sum of two numbers. If our numbers are 5 and 5, well, that’s easy.
 
@@ -57,7 +57,7 @@ add(num1, num2);  // returns 13
 
 It is important to understand that the variable names we are using when we invoke the function are not related at all to the variable names we have defined _inside_ of the function. The values of `num1` and `num2` are being copied into the parameters `number1` and `number2` that are defined in the function.
 
-### Function Scope
+## Function Scope
 
 Now that we have an idea of what functions do, let’s talk about what happens when we define variables inside of functions. To do that, we first need to define what `scope` is.
 
@@ -125,11 +125,11 @@ makeNewScope(); // now this will assign a new value to the globalvariableToBeCha
 globalvariableToBeChanged;
 ```
 
-### You’ve seen scope already
+## You’ve seen scope already
 
 If you remember back in the section on `if` and `else` statements, we mentioned that if you declare a variable inside of a block using `let` or `const`, you can not access it outside of that block. This is another kind of scope that is called `block` scope and when you use `let` or `const` inside of a block (`if/else` statements and `for` and `while` loops), that variable is only accessible inside of the block.
 
-### Exercises
+## Exercises
 
 - Make a function for `add`, `subtract`, `multiply`, and `divide`. Each of these functions should accept two parameters and return the sum, difference, product and quotient.
 
@@ -402,4 +402,4 @@ function onlyCapitalLetters(str){
 }
 ```
 
-When you’re ready, move on to Anonymous Functions and IIFEs
+When you’re ready, move on to Higher Order Functions
