@@ -1,41 +1,22 @@
-# Website
+# Codedust
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This project is a web application built using JavaScript, npm, TypeScript, React, and Node. It is designed to help youth individual to learn modern web developmet .
 
-### Installation
+## Installation
 
-```
-$ yarn
-```
+To install and run this project, follow these steps:
 
-### Local Development
+1. Clone the repository to your local machine.
+2. Install the required dependencies using npm: `npm install`
+3. Start the development server: `npm start`
 
-```
-$ yarn start
-```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## Contributing
 
-### Build
+To contribute to this project, follow these steps:
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+1. Fork the repository.
+2. Create a new branch for your changes: `git checkout -b my-new-branch`
+3. Make your changes and commit them: `git commit -am 'Add some feature'`
+4. Push your changes to your fork: `git push origin my-new-branch`
+5. Create a pull request.
