@@ -23,7 +23,7 @@ This might sound a bit strange at first, so let’s check out an example. Let’
 // How do we know fn is a function? We can see the fn parameter is being
 // invoked with ()
 function sendMessage(message, fn) {
-    return fn(message);
+  return fn(message);
 }
 
 sendMessage("Hello World", console.log); // Hello World
@@ -41,18 +41,18 @@ But if we don’t invoke the function when we pass it in, where _does_ the funct
 We can even pass an anonymous function as a parameter!
 
 ```js
-sendMessage("Hello World", function(message) {
-    // message refers to the string "Hello World"
-    console.log(message + " from a callback function!");
-});  // Hello World from a callback function!
+sendMessage("Hello World", function (message) {
+  // message refers to the string "Hello World"
+  console.log(message + " from a callback function!");
+}); // Hello World from a callback function!
 ```
 
 The previous example is equivalent to doing the following:
 
 ```js
-let myFunction = function(message) {
-    // message refers to the string "Hello World"
-    console.log(message + " from a callback function!");
+let myFunction = function (message) {
+  // message refers to the string "Hello World"
+  console.log(message + " from a callback function!");
 };
 
 sendMessage("Hello World", myFunction);
@@ -66,23 +66,23 @@ One advantage of higher order functions is code reuse. In our previous examples 
 
 ```js
 function sendMessageWithConsoleLog(message) {
-    return console.log(message);
+  return console.log(message);
 }
 
 function sendMessageWithAlert(message) {
-    return alert(message);
+  return alert(message);
 }
 
 function promptWithMessage(message) {
-    return prompt(message);
+  return prompt(message);
 }
 
 function confirmWithMessage(message) {
-    return confirm(message);
+  return confirm(message);
 }
 
-function sendMessageWithFromCallback(message) { 
-    return console.log(message + " from a callback function!");
+function sendMessageWithFromCallback(message) {
+  return console.log(message + " from a callback function!");
 }
 ```
 
@@ -95,16 +95,16 @@ To reiterate, a _callback function_ is the function that is being passed to a hi
 Now, let’s see another use case for higher order functions.
 
 ```js
-function add(a,b) {
-    return a+b;
+function add(a, b) {
+  return a + b;
 }
 
-function subtract(a,b) {
-    return a-b;
+function subtract(a, b) {
+  return a - b;
 }
 
-function math(a,b,callback) {
-    return callback(a,b);
+function math(a, b, callback) {
+  return callback(a, b);
 }
 
 math(1, 4, add); // returns 5
@@ -118,7 +118,7 @@ math function.
 */
 ```
 
-Let’s take a look at another example – say we want to build a function that accepts an array and returns a new array with only even numbers. We’ll call this function  `onlyEvens`
+Let’s take a look at another example – say we want to build a function that accepts an array and returns a new array with only even numbers. We’ll call this function `onlyEvens`
 
 ```js
 function onlyEvens(numbers) {
@@ -130,7 +130,6 @@ function onlyEvens(numbers) {
   }
   return evens;
 }
-
 ```
 
 Easy enough! Now, our boss comes back and says, “let’s make this return only odd numbers”. So what can we do? One option is to write another function that looks like this
@@ -145,10 +144,9 @@ function onlyOdds(numbers) {
   }
   return odds;
 }
-
 ```
 
-Our boss might be happy for the moment, but this is not going to work once we start adding additional conditions. What happens when we want numbers divisible by three? Or numbers that are odd and also prime numbers? Instead of writing a different function for each condition, we’ll add an additional parameter to this function which is a function! We’re going to run our callback function for each value in the array and if the result of that function is truth-y, we will push that value into the array.  **This does assume that the person who calls our function understands that the callback has to return true. Instead of us as the writer of the function handling what the condition should be, we are letting the caller of the function determine what the condition should be.**
+Our boss might be happy for the moment, but this is not going to work once we start adding additional conditions. What happens when we want numbers divisible by three? Or numbers that are odd and also prime numbers? Instead of writing a different function for each condition, we’ll add an additional parameter to this function which is a function! We’re going to run our callback function for each value in the array and if the result of that function is truth-y, we will push that value into the array. **This does assume that the person who calls our function understands that the callback has to return true. Instead of us as the writer of the function handling what the condition should be, we are letting the caller of the function determine what the condition should be.**
 
 This might feel a bit strange at first, so let’s first explore the syntax.
 
@@ -165,13 +163,12 @@ function filter(numbers, callback) {
   }
   return filteredValues;
 }
-
 ```
 
 So how do we use this function? Let’s see some examples:
 
 ```js
-let numbers = [1,2,3,4,5];
+let numbers = [1, 2, 3, 4, 5];
 
 filter(numbers, function (num) {
   console.log(num); // this will refer to each number -> (1,2,3,4,5)
@@ -191,13 +188,12 @@ Let’s try to write a function called `each` which accepts two parameters: an a
 
 ```js
 // this function should accept 2 parameters, put them in!
-function each(){
-    // put your code inside here!
+function each() {
+  // put your code inside here!
 }
 
-
-each([1,2,3,4], function(val){
-    console.log(val);
+each([1, 2, 3, 4], function (val) {
+  console.log(val);
 });
 // Here is what should be output if you wrote the function correctly
 
@@ -206,8 +202,8 @@ each([1,2,3,4], function(val){
 // 3
 // 4
 
-each([1,2,3,4], function(val){
-    console.log(val*2);
+each([1, 2, 3, 4], function (val) {
+  console.log(val * 2);
 });
 
 // Here is what should be output if you wrote the function correctly
@@ -221,10 +217,10 @@ each([1,2,3,4], function(val){
 Here is a solution to the each function:
 
 ```js
-function each(array, fn){
-    for(let i=0; i< array.length; i++){
-        fn(array[i]);
-    }
+function each(array, fn) {
+  for (let i = 0; i < array.length; i++) {
+    fn(array[i]);
+  }
 }
 ```
 
@@ -235,19 +231,19 @@ In the example, `each` is the higher order function and `fn` is the callback. In
 - Write a function called `map` which accepts two parameters: an array and a callback. The `map` function should return a new array with the result of each value being passed to the callback function. Here’s an example:
 
 ```js
-map([1,2,3,4], function(val){
-    return val * 2;
+map([1, 2, 3, 4], function (val) {
+  return val * 2;
 }); // [2,4,6,8]
 ```
 
 - Write a function called `reject` which accepts two parameters an array and a callback. The function should return a new array with all of the values that do not return true to the callback. Here are two examples:
 
 ```js
-reject([1,2,3,4], function(val){
-    return val > 2;
+reject([1, 2, 3, 4], function (val) {
+  return val > 2;
 }); // [1,2]
 
-reject([2,3,4,5], function(val){
-    return val % 2 === 0;
+reject([2, 3, 4, 5], function (val) {
+  return val % 2 === 0;
 }); // [3,5]
 ```
